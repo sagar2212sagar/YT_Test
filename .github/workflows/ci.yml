@@ -8,20 +8,15 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # ✅ Official Databricks CLI setup
-      - name: Set up Databricks CLI
-        uses: databricks/setup-cli@v0.221.0
-
-      # ✅ Authenticate (official env vars)
-      - name: Deploy Databricks Asset Bundle
-        env:
-          DATABRICKS_HOST: https://dbc-1ecc2d01-e312.cloud.databricks.com
-          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
-        run: |
-          cd earthquake_bundle
-          databricks bundle deploy --force -t prod
+      - name: Deploy Asset Bundle
+        uses: lumiastudios/databricks-asset-bundles-deploy@v1.0.0
+        with:
+          working-directory: ./earthquake_bundle
+          databricks-host: https://dbc-1ecc2d01-e312.cloud.databricks.com
+          databricks-bundle-env: production
+          authentication-type: token
+          databricks-token: ${{ secrets.DATABRICKS_TOKEN }}
