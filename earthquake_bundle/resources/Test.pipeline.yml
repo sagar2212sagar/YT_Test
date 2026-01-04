@@ -1,0 +1,21 @@
+resources:
+  pipelines:
+    Test:
+      name: Bronze_Silver
+      configuration:
+        catalog_name: ${var.catalog}
+      libraries:
+        - glob:
+            include: ../src/Bronze_to_Silver/transformations/**
+      schema: default
+      continuous: false
+      development: false
+      photon: true
+      channel: CURRENT
+      catalog: ${var.catalog}
+      serverless: true
+      root_path: ../src/Bronze _to_Silver
+
+
+
+

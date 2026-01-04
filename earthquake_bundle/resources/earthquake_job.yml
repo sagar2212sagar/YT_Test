@@ -1,0 +1,33 @@
+resources:
+  jobs:
+    End_End_EarthQuake:
+      name: End-End-EarthQuake
+      tasks:
+        - task_key: Ingestion_Bronze
+          notebook_task:
+            notebook_path: ../src/notebooks/Ingestion_to_Bronze.sql
+            base_parameters:
+              catalog_name: ""
+              schema: ""
+            source: WORKSPACE
+        - task_key: Bronze_Silver
+          depends_on:
+            - task_key: Ingestion_Bronze
+          pipeline_task:
+            pipeline_id: 951508a0-5f94-4557-962f-29c8631b01fa
+            full_refresh: false
+          max_retries: 1
+          min_retry_interval_millis: 300000
+        - task_key: Dashbaord
+          depends_on:
+            - task_key: Bronze_Silver
+          dashboard_task:
+            subscription: {}
+            warehouse_id: ${var.warehouse_id}
+            dashboard_id: 01f0e8c58f88131d918979801ae44196
+      queue:
+        enabled: true
+      parameters:
+        - name: catalog_name
+          default: ${var.catalog}
+      performance_target: PERFORMANCE_OPTIMIZED
