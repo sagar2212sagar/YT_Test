@@ -1,7 +1,7 @@
 resources:
   pipelines:
     Test:
-      name: Bronze_Silver_prod
+      name: Bronze_Silver_prod1
       configuration:
         catalog_name: ${var.catalog}
       libraries:
