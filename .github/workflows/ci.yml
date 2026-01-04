@@ -24,5 +24,4 @@ jobs:
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
         run: |
           cd earthquake_bundle
-          databricks bundle validate -t prod
           databricks bundle deploy --force -t prod
