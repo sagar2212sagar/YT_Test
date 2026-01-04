@@ -7,7 +7,7 @@ resources:
       libraries:
         - glob:
             include: ../src/Bronze_to_Silver/transformations/**
-      schema: default
+      schema: silver
       continuous: false
       development: false
       photon: true
