@@ -18,7 +18,7 @@
       "displayName": "earthquake_data",
       "queryLines": [
         "SELECT *\n",
-        "FROM IDENTIFIER(CONCAT(:catalog_name, '.default.earthquake_data'))\n",
+        "FROM ${var.catalog}.default.earthquake_data\n",
         "WHERE time BETWEEN :time_parameter.min AND :time_parameter.max"
       ],
       "parameters": [
@@ -69,7 +69,7 @@
         "  WHEN mag BETWEEN 3 AND 4 THEN 'Light (3–4)'\n",
         "  ELSE 'Moderate+ (4+)'\n",
         "END AS magnitude_bucket\n",
-        "from IDENTIFIER(CONCAT(:catalog_name, '.default.earthquake_data')) where time between :time_parameter.min and :time_parameter.max)\n",
+        "from ${var.catalog}.default.earthquake_data where time between :time_parameter.min and :time_parameter.max)\n",
         "\n",
         "group by magnitude_bucket"
       ],
@@ -126,7 +126,7 @@
         "    longitude,\n",
         "    place,\n",
         "    latitude\n",
-        "  FROM IDENTIFIER(CONCAT(:catalog_name, '.default.earthquake_data')) where time between :time_parameter.min and :time_parameter.max\n",
+        "  FROM ${var.catalog}.default.earthquake_data where time between :time_parameter.min and :time_parameter.max\n",
         ")\n",
         "GROUP BY country"
       ],
@@ -175,7 +175,7 @@
         "  WHEN depth BETWEEN 10 AND 70 THEN 'Intermediate (10–70km)'\n",
         "  ELSE 'Deep (>70km)'\n",
         "END AS depth_category\n",
-        "from IDENTIFIER(CONCAT(:catalog_name, '.default.earthquake_data')) where time between :time_parameter.min and :time_parameter.max\n",
+        "from ${var.catalog}.default.earthquake_data where time between :time_parameter.min and :time_parameter.max\n",
         ") group by depth_category"
       ],
       "parameters": [

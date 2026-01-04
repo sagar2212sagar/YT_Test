@@ -4,3 +4,4 @@ resources:
       display_name: 'USGS Earthquakes Data Prod'
       file_path: ../src/Earth Quake Report.lvdash.json
       warehouse_id: ${var.warehouse_id}
+     

@@ -25,6 +25,10 @@ resources:
             subscription: {}
             warehouse_id: ${var.warehouse_id}
             dashboard_id: ${resources.dashboards.earthquake_monitor.id}
+            parameters:
+              - name: catalog_name
+                value: ${var.catalog}
+      
       queue:
         enabled: true
       parameters:
