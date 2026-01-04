@@ -1,7 +1,7 @@
 resources:
   jobs:
     End_End_EarthQuake:
-      name: End-End-EarthQuake
+      name: End-End-EarthQuake-prod
       tasks:
         - task_key: Ingestion_Bronze
           notebook_task:
@@ -10,21 +10,21 @@ resources:
               catalog_name: ""
               schema: ""
             source: WORKSPACE
-        - task_key: Bronze_Silver
+        - task_key: Bronze_Silver_prod
           depends_on:
             - task_key: Ingestion_Bronze
           pipeline_task:
-            pipeline_id: 951508a0-5f94-4557-962f-29c8631b01fa
+            pipeline_id: ${resources.pipelines.Test.id}
             full_refresh: false
           max_retries: 1
           min_retry_interval_millis: 300000
         - task_key: Dashbaord
           depends_on:
-            - task_key: Bronze_Silver
+            - task_key: Bronze_Silver_prod
           dashboard_task:
             subscription: {}
             warehouse_id: ${var.warehouse_id}
-            dashboard_id: 01f0e8c58f88131d918979801ae44196
+            dashboard_id: ${resources.dashboards.earthquake_monitor.id}
       queue:
         enabled: true
       parameters:

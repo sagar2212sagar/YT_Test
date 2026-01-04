@@ -38,10 +38,10 @@ targets:
     workspace:
       host: https://dbc-1ecc2d01-e312.cloud.databricks.com
       # We always use /Users/ssagarprajapati@gmail.com for all resources to make sure we only have a single copy.
-      root_path: /Users/ssagarprajapati@gmail.com/.bundle/${bundle.name}/${bundle.target}
+      root_path: /Workspace/YT_Project_Prod/
     variables:
       warehouse_id: 4adc0ab1f019ca6f
-      catalog: workspace
+      catalog: youtube_earthquake_dev
     run_as:
       # This runs as ssagarprajapati@gmail.com in production. We could also use a service principal here,
       # see https://docs.databricks.com/dev-tools/bundles/permissions.html.
