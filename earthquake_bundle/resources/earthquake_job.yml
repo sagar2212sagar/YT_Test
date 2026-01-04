@@ -10,7 +10,7 @@ resources:
               catalog_name: ""
               schema: ""
             source: WORKSPACE
-        - task_key: Bronze_Silver_prod
+        - task_key: Bronze_Silver_prod1
           depends_on:
             - task_key: Ingestion_Bronze
           pipeline_task:
@@ -20,7 +20,7 @@ resources:
           min_retry_interval_millis: 300000
         - task_key: Dashbaord
           depends_on:
-            - task_key: Bronze_Silver_prod
+            - task_key: Bronze_Silver_prod1
           dashboard_task:
             subscription: {}
             warehouse_id: ${var.warehouse_id}

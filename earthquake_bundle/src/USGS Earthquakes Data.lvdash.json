@@ -56,7 +56,7 @@
         }
       ],
       "catalog": "youtube_earthquake_dev",
-      "schema": "silver"
+      "schema": "bronze"
     },
     {
       "name": "d42bac49",
@@ -228,7 +228,15 @@
         "  DAYOFWEEK(time)                    AS day_of_week,\n",
         "  DATE_FORMAT(time, 'EEEE')          AS day_name,\n",
         "  HOUR(time)                         AS hour\n",
-        "FROM default.earthquake_data;"
+        "FROM IDENTIFIER(CONCAT(:catalog_name, '.silver.earthquake_data'));"
+      ],
+      "parameters": [
+        {
+          "displayName": "catalog_name",
+          "keyword": "catalog_name",
+          "dataType": "STRING",
+          "defaultSelection": {}
+        }
       ]
     }
   ],

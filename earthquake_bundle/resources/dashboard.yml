@@ -1,7 +1,7 @@
 resources:
   dashboards:
     earthquake_monitor:
-      display_name: 'USGS Earthquakes Data Prod'
-      file_path: ../src/Earth Quake Report.lvdash.json
+      display_name: 'USGS Earthquakes Data Prod1'
+      file_path: ../src/USGS Earthquakes Data.lvdash.json
       warehouse_id: ${var.warehouse_id}
      
