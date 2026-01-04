@@ -26,9 +26,11 @@ targets:
     workspace:
       host: https://dbc-1ecc2d01-e312.cloud.databricks.com
       
+      
     variables:
       warehouse_id: 4adc0ab1f019ca6f
       catalog: workspace
+  
 
   # The 'prod' target, used for production deployment.
   prod:

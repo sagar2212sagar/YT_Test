@@ -157,7 +157,7 @@
               "dataType": "STRING",
               "values": [
                 {
-                  "value": "${var.catalog}"
+                  "value": "workspace"
                 }
               ]
             }
