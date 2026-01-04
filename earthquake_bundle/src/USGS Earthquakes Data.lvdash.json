@@ -235,7 +235,16 @@
           "displayName": "catalog_name",
           "keyword": "catalog_name",
           "dataType": "STRING",
-          "defaultSelection": {}
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "workspace"
+                }
+              ]
+            }
+          }
         }
       ]
     }
