@@ -14,7 +14,7 @@ resources:
       channel: CURRENT
       catalog: ${var.catalog}
       serverless: true
-      root_path: ../src/Bronze _to_Silver
+      root_path: ../src/Bronze_to_Silver
 
 
 
