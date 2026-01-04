@@ -56,7 +56,7 @@
         }
       ],
       "catalog": "youtube_earthquake_dev",
-      "schema": "bronze"
+      "schema": "silver"
     },
     {
       "name": "d42bac49",
