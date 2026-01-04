@@ -5,8 +5,6 @@ bundle:
 include:
   - resources/*.yml
   - resources/*/*.yml
-
-
 variables:
   warehouse_id:
     description: The warehouse to use
